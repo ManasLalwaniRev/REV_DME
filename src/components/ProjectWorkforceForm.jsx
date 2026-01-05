@@ -958,6 +958,179 @@
 // export default ProjectWorkforceForm;
 
 
+
+// PREV DEV// import React, { useState } from 'react';
+// import { UserCircle, LogOut, FileText, Download, Plus, Trash2, Save, X } from 'lucide-react';
+
+// const ProjectWorkForce = ({ 
+//   userName = 'Admin', 
+//   userAvatar, 
+//   handleLogout 
+// }) => {
+//   // --- STATE ---
+//   const [workforceData, setWorkforceData] = useState([
+//     { accountCode: '50-000-000', accountName: 'Direct Lbr-Onsite', orgCode: '1.02.03', orgName: 'Software Engineering' },
+//     { accountCode: '50-000-100', accountName: 'Dir Labor-Offsite', orgCode: '1.02.05', orgName: 'Software Engineering' },
+//     { accountCode: '50-000-999', accountName: 'Unbilled DL (Onsite)', orgCode: '1.02.04', orgName: 'Sales & Marketing' },
+//   ]);
+
+//   const [showAddForm, setShowAddForm] = useState(false);
+//   const [newRow, setNewRow] = useState({ accountCode: '', accountName: '', orgCode: '', orgName: '' });
+
+//   // --- HANDLERS ---
+//   const handleAddRow = (e) => {
+//     e.preventDefault();
+//     if (newRow.accountCode && newRow.accountName) {
+//       setWorkforceData([...workforceData, newRow]);
+//       setNewRow({ accountCode: '', accountName: '', orgCode: '', orgName: '' });
+//       setShowAddForm(false);
+//     }
+//   };
+
+//   const deleteRow = (index) => {
+//     setWorkforceData(workforceData.filter((_, i) => i !== index));
+//   };
+
+//   return (
+//     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black p-4 sm:p-6 lg:p-8 text-gray-100 flex justify-center items-start">
+//       <div className="bg-white p-6 rounded-xl shadow-2xl w-full max-w-full text-gray-800">
+        
+//         {/* --- HEADER SECTION (Matching ProjectSetupForm) --- */}
+//         <div className="flex justify-between items-center mb-8">
+//           <div className="w-1/3">
+//             <h1 className="text-3xl font-extrabold">
+//               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-800 to-blue-600 leading-tight">
+//                 Account Org Setup
+//                               </span>
+//             </h1>
+//           </div>
+
+//           <div className="w-1/3 flex justify-center">
+//             <img src="/Lumina_logo.png" alt="Lumina Logo" className="h-12 opacity-100" />
+//           </div>
+
+//           <div className="w-1/3 flex justify-end items-center gap-4">
+//             <div className="flex items-center gap-3 bg-gray-100 p-3 rounded-lg">
+//               {userAvatar ? (
+//                 <img src={userAvatar} alt="User Avatar" className="w-10 h-10 rounded-full object-cover" />
+//               ) : (
+//                 <UserCircle size={32} className="text-gray-500" />
+//               )}
+//               <span className="text-lg font-medium text-gray-700 hidden sm:block">
+//                 Welcome, {userName}
+//               </span>
+//             </div>
+//             <button onClick={handleLogout} className="p-3 bg-red-100 hover:bg-red-200 rounded-full text-red-600 transition-colors">
+//               <LogOut size={20} />
+//             </button>
+//           </div>
+//         </div>
+
+//         {/* --- TABLE HEADER & ADD BUTTON --- */}
+//         <section className="space-y-4">
+//           <div className="flex justify-between items-center border-b-2 border-blue-200 pb-2">
+//             <h2 className="text-sm font-bold text-gray-700 uppercase tracking-wider">
+//               Account Org Mapping Table
+//             </h2>
+//             <button 
+//               onClick={() => setShowAddForm(!showAddForm)}
+//               className="text-blue-700 px-3 py-1 rounded-md hover:bg-blue-100 flex items-center gap-2 text-xs font-bold transition-colors"
+//             >
+//               {showAddForm ? <><X size={14} /> Close</> : <><Plus size={14} /> Add Record</>}
+//             </button>
+//           </div>
+
+//           {/* --- SLIDE-DOWN ADD FORM --- */}
+//           {showAddForm && (
+//             <div className="bg-blue-50 p-4 rounded-xl border border-blue-100 mb-4 animate-in fade-in slide-in-from-top-2">
+//               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+//                 <input 
+//                   className="p-2 border-b-2 border-gray-300 focus:border-blue-600 outline-none text-sm bg-transparent"
+//                   placeholder="Account Code"
+//                   value={newRow.accountCode}
+//                   onChange={(e) => setNewRow({...newRow, accountCode: e.target.value})}
+//                 />
+//                 <input 
+//                   className="p-2 border-b-2 border-gray-300 focus:border-blue-600 outline-none text-sm bg-transparent"
+//                   placeholder="Account Name"
+//                   value={newRow.accountName}
+//                   onChange={(e) => setNewRow({...newRow, accountName: e.target.value})}
+//                 />
+//                 <input 
+//                   className="p-2 border-b-2 border-gray-300 focus:border-blue-600 outline-none text-sm bg-transparent"
+//                   placeholder="Org Code"
+//                   value={newRow.orgCode}
+//                   onChange={(e) => setNewRow({...newRow, orgCode: e.target.value})}
+//                 />
+//                 <div className="flex gap-2">
+//                   <input 
+//                     className="w-full p-2 border-b-2 border-gray-300 focus:border-blue-600 outline-none text-sm bg-transparent"
+//                     placeholder="Org Name"
+//                     value={newRow.orgName}
+//                     onChange={(e) => setNewRow({...newRow, orgName: e.target.value})}
+//                   />
+//                   <button 
+//                     onClick={handleAddRow}
+//                     className="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-800 transition-all"
+//                   >
+//                     <Save size={18} />
+//                   </button>
+//                 </div>
+//               </div>
+//             </div>
+//           )}
+
+//           {/* --- DATA TABLE --- */}
+//           <div className="overflow-x-auto border border-gray-200 rounded-xl shadow-sm">
+//             <table className="min-w-full divide-y divide-gray-200">
+//               <thead className="bg-gray-50">
+//                 <tr>
+//                   <th className="px-6 py-4 text-left font-bold text-gray-600 uppercase text-xs">Account Code</th>
+//                   <th className="px-6 py-4 text-left font-bold text-gray-600 uppercase text-xs">Account Name</th>
+//                   <th className="px-6 py-4 text-left font-bold text-gray-600 uppercase text-xs">Org Code</th>
+//                   <th className="px-6 py-4 text-left font-bold text-gray-600 uppercase text-xs">Org Name</th>
+//                   <th className="px-6 py-4 text-center font-bold text-gray-600 uppercase text-xs">Action</th>
+//                 </tr>
+//               </thead>
+//               <tbody className="divide-y divide-gray-200 bg-white">
+//                 {workforceData.map((row, index) => (
+//                   <tr key={index} className="hover:bg-blue-50 transition-colors group">
+//                     <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-blue-700">{row.accountCode}</td>
+//                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 font-medium">{row.accountName}</td>
+//                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-mono">{row.orgCode}</td>
+//                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{row.orgName}</td>
+//                     <td className="px-6 py-4 text-center">
+//                       <button 
+//                         onClick={() => deleteRow(index)}
+//                         className="text-gray-300 hover:text-red-500 transition-colors"
+//                       >
+//                         <Trash2 size={18} className="mx-auto" />
+//                       </button>
+//                     </td>
+//                   </tr>
+//                 ))}
+//               </tbody>
+//             </table>
+//           </div>
+//         </section>
+
+//         {/* --- FOOTER ACTIONS --- */}
+//         <div className="flex justify-end gap-4 pt-10 mt-8 border-t border-gray-100">
+//           <button className="flex items-center gap-2 px-6 py-2.5 border border-gray-300 rounded-lg text-gray-600 font-bold hover:bg-gray-100 transition-all text-sm shadow-sm">
+//             <Download size={18} /> Export CSV
+//           </button>
+//           <button className="flex items-center gap-2 px-8 py-2.5 bg-gradient-to-r from-blue-700 to-blue-800 text-white font-extrabold rounded-lg shadow-md hover:from-blue-800 text-sm transform transition-all active:scale-95">
+//             <FileText size={18} /> Generate Report
+//           </button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ProjectWorkForce;
+
+
 import React, { useState } from 'react';
 import { UserCircle, LogOut, FileText, Download, Plus, Trash2, Save, X } from 'lucide-react';
 
@@ -967,40 +1140,58 @@ const ProjectWorkForce = ({
   handleLogout 
 }) => {
   // --- STATE ---
-  const [workforceData, setWorkforceData] = useState([
-    { accountCode: '50-000-000', accountName: 'Direct Lbr-Onsite', orgCode: '1.02.03', orgName: 'Software Engineering' },
-    { accountCode: '50-000-100', accountName: 'Dir Labor-Offsite', orgCode: '1.02.05', orgName: 'Software Engineering' },
-    { accountCode: '50-000-999', accountName: 'Unbilled DL (Onsite)', orgCode: '1.02.04', orgName: 'Sales & Marketing' },
+  const [accounts, setAccounts] = useState([
+    { code: '50-000-000', name: 'Direct Lbr-Onsite' },
+    { code: '50-000-100', name: 'Dir Labor-Offsite' },
+    { code: '50-000-999', name: 'Unbilled DL (Onsite)' },
   ]);
 
-  const [showAddForm, setShowAddForm] = useState(false);
-  const [newRow, setNewRow] = useState({ accountCode: '', accountName: '', orgCode: '', orgName: '' });
+  const [orgs, setOrgs] = useState([
+    { code: '1.02.03', name: 'Software Engineering' },
+    { code: '1.02.05', name: 'Software Engineering' },
+    { code: '1.02.04', name: 'Sales & Marketing' },
+  ]);
+
+  const [showAccountForm, setShowAccountForm] = useState(false);
+  const [showOrgForm, setShowOrgForm] = useState(false);
+
+  const [newAccount, setNewAccount] = useState({ code: '', name: '' });
+  const [newOrg, setNewOrg] = useState({ code: '', name: '' });
 
   // --- HANDLERS ---
-  const handleAddRow = (e) => {
+  const handleAddAccount = (e) => {
     e.preventDefault();
-    if (newRow.accountCode && newRow.accountName) {
-      setWorkforceData([...workforceData, newRow]);
-      setNewRow({ accountCode: '', accountName: '', orgCode: '', orgName: '' });
-      setShowAddForm(false);
+    if (newAccount.code && newAccount.name) {
+      setAccounts([...accounts, newAccount]);
+      setNewAccount({ code: '', name: '' });
+      setShowAccountForm(false);
     }
   };
 
-  const deleteRow = (index) => {
-    setWorkforceData(workforceData.filter((_, i) => i !== index));
+  const handleAddOrg = (e) => {
+    e.preventDefault();
+    if (newOrg.code && newOrg.name) {
+      setOrgs([...orgs, newOrg]);
+      setNewOrg({ code: '', name: '' });
+      setShowOrgForm(false);
+    }
   };
 
+  const deleteAccount = (index) => setAccounts(accounts.filter((_, i) => i !== index));
+  const deleteOrg = (index) => setOrgs(orgs.filter((_, i) => i !== index));
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black p-4 sm:p-6 lg:p-8 text-gray-100 flex justify-center items-start">
-      <div className="bg-white p-6 rounded-xl shadow-2xl w-full max-w-full text-gray-800">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black p-4 text-gray-100 flex justify-center items-start">
+      {/* Container expanded to 98% */}
+      <div className="bg-white p-6 rounded-xl shadow-2xl w-[98%] text-gray-800">
         
-        {/* --- HEADER SECTION (Matching ProjectSetupForm) --- */}
-        <div className="flex justify-between items-center mb-8">
+        {/* --- HEADER SECTION --- */}
+        <div className="flex justify-between items-center mb-10">
           <div className="w-1/3">
             <h1 className="text-3xl font-extrabold">
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-800 to-blue-600 leading-tight">
-                Account Org Setup
-                              </span>
+                Account & Org Setup
+              </span>
             </h1>
           </div>
 
@@ -1009,13 +1200,13 @@ const ProjectWorkForce = ({
           </div>
 
           <div className="w-1/3 flex justify-end items-center gap-4">
-            <div className="flex items-center gap-3 bg-gray-100 p-3 rounded-lg">
+            <div className="flex items-center gap-3 bg-gray-100 p-3 rounded-lg border border-gray-200">
               {userAvatar ? (
                 <img src={userAvatar} alt="User Avatar" className="w-10 h-10 rounded-full object-cover" />
               ) : (
                 <UserCircle size={32} className="text-gray-500" />
               )}
-              <span className="text-lg font-medium text-gray-700 hidden sm:block">
+              <span className="text-lg font-medium text-gray-700 hidden sm:block leading-tight">
                 Welcome, {userName}
               </span>
             </div>
@@ -1025,101 +1216,157 @@ const ProjectWorkForce = ({
           </div>
         </div>
 
-        {/* --- TABLE HEADER & ADD BUTTON --- */}
-        <section className="space-y-4">
-          <div className="flex justify-between items-center border-b-2 border-blue-200 pb-2">
-            <h2 className="text-sm font-bold text-gray-700 uppercase tracking-wider">
-              Account Org Mapping Table
-            </h2>
-            <button 
-              onClick={() => setShowAddForm(!showAddForm)}
-              className="text-blue-700 px-3 py-1 rounded-md hover:bg-blue-100 flex items-center gap-2 text-xs font-bold transition-colors"
-            >
-              {showAddForm ? <><X size={14} /> Close</> : <><Plus size={14} /> Add Record</>}
-            </button>
-          </div>
-
-          {/* --- SLIDE-DOWN ADD FORM --- */}
-          {showAddForm && (
-            <div className="bg-blue-50 p-4 rounded-xl border border-blue-100 mb-4 animate-in fade-in slide-in-from-top-2">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <input 
-                  className="p-2 border-b-2 border-gray-300 focus:border-blue-600 outline-none text-sm bg-transparent"
-                  placeholder="Account Code"
-                  value={newRow.accountCode}
-                  onChange={(e) => setNewRow({...newRow, accountCode: e.target.value})}
-                />
-                <input 
-                  className="p-2 border-b-2 border-gray-300 focus:border-blue-600 outline-none text-sm bg-transparent"
-                  placeholder="Account Name"
-                  value={newRow.accountName}
-                  onChange={(e) => setNewRow({...newRow, accountName: e.target.value})}
-                />
-                <input 
-                  className="p-2 border-b-2 border-gray-300 focus:border-blue-600 outline-none text-sm bg-transparent"
-                  placeholder="Org Code"
-                  value={newRow.orgCode}
-                  onChange={(e) => setNewRow({...newRow, orgCode: e.target.value})}
-                />
-                <div className="flex gap-2">
-                  <input 
-                    className="w-full p-2 border-b-2 border-gray-300 focus:border-blue-600 outline-none text-sm bg-transparent"
-                    placeholder="Org Name"
-                    value={newRow.orgName}
-                    onChange={(e) => setNewRow({...newRow, orgName: e.target.value})}
-                  />
-                  <button 
-                    onClick={handleAddRow}
-                    className="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-800 transition-all"
-                  >
-                    <Save size={18} />
-                  </button>
-                </div>
-              </div>
+        {/* --- VERTICAL STACKED SECTIONS --- */}
+        <div className="space-y-12">
+          
+          {/* SECTION 1: ACCOUNT IDENTIFICATION */}
+          <section className="space-y-4">
+            <div className="flex justify-between items-center border-b-2 border-blue-200 pb-2">
+              <h2 className="text-sm font-bold text-gray-700 uppercase tracking-wider">
+                1. Account Identification
+              </h2>
+              <button 
+                onClick={() => setShowAccountForm(!showAccountForm)}
+                className="text-blue-700 px-4 py-1.5 rounded-md hover:bg-blue-100 flex items-center gap-2 text-xs font-bold transition-colors border border-blue-200"
+              >
+                {showAccountForm ? <><X size={14} /> Cancel</> : <><Plus size={14} /> Add New Account</>}
+              </button>
             </div>
-          )}
 
-          {/* --- DATA TABLE --- */}
-          <div className="overflow-x-auto border border-gray-200 rounded-xl shadow-sm">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="px-6 py-4 text-left font-bold text-gray-600 uppercase text-xs">Account Code</th>
-                  <th className="px-6 py-4 text-left font-bold text-gray-600 uppercase text-xs">Account Name</th>
-                  <th className="px-6 py-4 text-left font-bold text-gray-600 uppercase text-xs">Org Code</th>
-                  <th className="px-6 py-4 text-left font-bold text-gray-600 uppercase text-xs">Org Name</th>
-                  <th className="px-6 py-4 text-center font-bold text-gray-600 uppercase text-xs">Action</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200 bg-white">
-                {workforceData.map((row, index) => (
-                  <tr key={index} className="hover:bg-blue-50 transition-colors group">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-blue-700">{row.accountCode}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 font-medium">{row.accountName}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-mono">{row.orgCode}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{row.orgName}</td>
-                    <td className="px-6 py-4 text-center">
-                      <button 
-                        onClick={() => deleteRow(index)}
-                        className="text-gray-300 hover:text-red-500 transition-colors"
-                      >
-                        <Trash2 size={18} className="mx-auto" />
-                      </button>
-                    </td>
+            {showAccountForm && (
+              <div className="bg-blue-50/50 p-6 rounded-xl border border-blue-100 animate-in fade-in slide-in-from-top-2 duration-300">
+                <form onSubmit={handleAddAccount} className="flex flex-wrap items-end gap-6">
+                  <div className="flex-1 min-w-[250px] space-y-1">
+                    <label className="text-[10px] font-bold text-gray-400 uppercase">Account Code</label>
+                    <input 
+                      className="w-full p-2 border-b-2 border-gray-300 focus:border-blue-600 outline-none text-sm bg-transparent font-mono"
+                      placeholder="e.g. 50-000-000"
+                      value={newAccount.code}
+                      onChange={(e) => setNewAccount({...newAccount, code: e.target.value})}
+                      required
+                    />
+                  </div>
+                  <div className="flex-[2] min-w-[300px] space-y-1">
+                    <label className="text-[10px] font-bold text-gray-400 uppercase">Account Name</label>
+                    <input 
+                      className="w-full p-2 border-b-2 border-gray-300 focus:border-blue-600 outline-none text-sm bg-transparent"
+                      placeholder="Enter account description..."
+                      value={newAccount.name}
+                      onChange={(e) => setNewAccount({...newAccount, name: e.target.value})}
+                      required
+                    />
+                  </div>
+                  <button type="submit" className="flex items-center gap-2 px-6 py-2.5 bg-blue-700 text-white rounded-lg font-bold text-xs hover:bg-black transition-all shadow-md">
+                    <Save size={14} /> Save Account
+                  </button>
+                </form>
+              </div>
+            )}
+
+            <div className="overflow-x-auto border border-gray-200 rounded-xl shadow-sm">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="px-6 py-4 text-left font-bold text-gray-600 uppercase text-xs tracking-wider w-1/4">Account Code</th>
+                    <th className="px-6 py-4 text-left font-bold text-gray-600 uppercase text-xs tracking-wider">Account Name</th>
+                    <th className="px-6 py-4 text-center font-bold text-gray-600 uppercase text-xs tracking-wider w-24">Action</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
+                </thead>
+                <tbody className="divide-y divide-gray-200 bg-white">
+                  {accounts.map((row, index) => (
+                    <tr key={index} className="hover:bg-blue-50 transition-colors">
+                      <td className="px-6 py-4 text-sm font-bold text-blue-700 font-mono">{row.code}</td>
+                      <td className="px-6 py-4 text-sm text-gray-700 font-medium">{row.name}</td>
+                      <td className="px-6 py-4 text-center">
+                        <button onClick={() => deleteAccount(index)} className="text-gray-300 hover:text-red-500 transition-colors">
+                          <Trash2 size={18} className="mx-auto" />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          {/* SECTION 2: ORGANIZATION MAPPING */}
+          <section className="space-y-4">
+            <div className="flex justify-between items-center border-b-2 border-gray-200 pb-2">
+              <h2 className="text-sm font-bold text-gray-700 uppercase tracking-wider">
+                2. Organization Mapping
+              </h2>
+              <button 
+                onClick={() => setShowOrgForm(!showOrgForm)}
+                className="text-gray-700 px-4 py-1.5 rounded-md hover:bg-gray-100 flex items-center gap-2 text-xs font-bold transition-colors border border-gray-200"
+              >
+                {showOrgForm ? <><X size={14} /> Cancel</> : <><Plus size={14} /> Add New Organization</>}
+              </button>
+            </div>
+
+            {showOrgForm && (
+              <div className="bg-gray-50 p-6 rounded-xl border border-gray-200 animate-in fade-in slide-in-from-top-2 duration-300">
+                <form onSubmit={handleAddOrg} className="flex flex-wrap items-end gap-6">
+                  <div className="flex-1 min-w-[250px] space-y-1">
+                    <label className="text-[10px] font-bold text-gray-400 uppercase">Org Code</label>
+                    <input 
+                      className="w-full p-2 border-b-2 border-gray-300 focus:border-black outline-none text-sm bg-transparent font-mono"
+                      placeholder="e.g. 1.02.03"
+                      value={newOrg.code}
+                      onChange={(e) => setNewOrg({...newOrg, code: e.target.value})}
+                      required
+                    />
+                  </div>
+                  <div className="flex-[2] min-w-[300px] space-y-1">
+                    <label className="text-[10px] font-bold text-gray-400 uppercase">Org Name</label>
+                    <input 
+                      className="w-full p-2 border-b-2 border-gray-300 focus:border-black outline-none text-sm bg-transparent"
+                      placeholder="Enter organization name..."
+                      value={newOrg.name}
+                      onChange={(e) => setNewOrg({...newOrg, name: e.target.value})}
+                      required
+                    />
+                  </div>
+                  <button type="submit" className="flex items-center gap-2 px-6 py-2.5 bg-gray-800 text-white rounded-lg font-bold text-xs hover:bg-black transition-all shadow-md">
+                    <Save size={14} /> Save Organization
+                  </button>
+                </form>
+              </div>
+            )}
+
+            <div className="overflow-x-auto border border-gray-200 rounded-xl shadow-sm">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="px-6 py-4 text-left font-bold text-gray-600 uppercase text-xs tracking-wider w-1/4">Org Code</th>
+                    <th className="px-6 py-4 text-left font-bold text-gray-600 uppercase text-xs tracking-wider">Org Name</th>
+                    <th className="px-6 py-4 text-center font-bold text-gray-600 uppercase text-xs tracking-wider w-24">Action</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200 bg-white">
+                  {orgs.map((row, index) => (
+                    <tr key={index} className="hover:bg-gray-50 transition-colors">
+                      <td className="px-6 py-4 text-sm text-gray-600 font-mono">{row.code}</td>
+                      <td className="px-6 py-4 text-sm text-gray-700 font-medium">{row.name}</td>
+                      <td className="px-6 py-4 text-center">
+                        <button onClick={() => deleteOrg(index)} className="text-gray-300 hover:text-red-500 transition-colors">
+                          <Trash2 size={18} className="mx-auto" />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
 
         {/* --- FOOTER ACTIONS --- */}
-        <div className="flex justify-end gap-4 pt-10 mt-8 border-t border-gray-100">
+        <div className="flex justify-end gap-4 pt-10 mt-12 border-t border-gray-100">
           <button className="flex items-center gap-2 px-6 py-2.5 border border-gray-300 rounded-lg text-gray-600 font-bold hover:bg-gray-100 transition-all text-sm shadow-sm">
-            <Download size={18} /> Export CSV
+            <Download size={18} /> Export Master Data
           </button>
           <button className="flex items-center gap-2 px-8 py-2.5 bg-gradient-to-r from-blue-700 to-blue-800 text-white font-extrabold rounded-lg shadow-md hover:from-blue-800 text-sm transform transition-all active:scale-95">
-            <FileText size={18} /> Generate Report
+            <FileText size={18} /> Finalize Setup
           </button>
         </div>
       </div>

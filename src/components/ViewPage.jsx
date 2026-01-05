@@ -2044,8 +2044,8 @@ const ViewPage = ({ allData = {}, userName = 'Admin', userAvatar, handleLogout, 
           <div className="w-1/3">
             <h1 className="text-3xl font-bold">
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-800 to-blue-600 leading-tight ">
-                Master Data Portal
-              </span>
+                Master Data Management Portal
+                              </span>
             </h1>
           </div>
 

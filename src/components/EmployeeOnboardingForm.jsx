@@ -271,6 +271,12 @@ const EmployeeOnboardingForm = ({ userName = 'Admin', userAvatar, handleLogout }
                 <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Job Title</label>
                 <input className="w-full p-2.5 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-600 outline-none shadow-sm" type="text" />
               </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Effective Date</label>
+                <input className="w-full p-2.5 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-600 outline-none shadow-sm" type="date" />
+              </div>
+
             </div>
           </section>
 
@@ -378,7 +384,7 @@ const EmployeeOnboardingForm = ({ userName = 'Admin', userAvatar, handleLogout }
               <div className="bg-blue-900 p-1.5 rounded-md text-white">
                 <MapPin size={18} />
               </div>
-              <h2 className="text-xl font-bold text-gray-800 uppercase tracking-tight">D. Project Assignment</h2>
+              <h2 className="text-xl font-bold text-gray-800 uppercase tracking-tight">D. Charge Assignment</h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-gray-50 p-6 rounded-xl border border-gray-100">
@@ -390,6 +396,19 @@ const EmployeeOnboardingForm = ({ userName = 'Admin', userAvatar, handleLogout }
                 <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Labor Location</label>
                 <input className="w-full p-2.5 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-600 outline-none shadow-sm" type="text" />
               </div>
+
+
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">PLC Code</label>
+                <input className="w-full p-2.5 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-600 outline-none shadow-sm" type="text" />
+              </div>
+
+                <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Home Organization</label>
+                <input className="w-full p-2.5 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-600 outline-none shadow-sm" type="text" />
+              </div>
+
+
             </div>
           </section>
 
