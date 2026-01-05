@@ -236,7 +236,7 @@ const VendorForm = ({
               </div>
 
               <div className="space-y-1">
-                <label className="text-xs font-bold text-gray-500 uppercase"><span className="text-red-500">*</span></label>
+                <label className="text-xs font-bold text-gray-500 uppercase"><span className="text-red-500">*</span> Vendor Name</label>
                 <input className="w-full p-2 border border-gray-300 rounded-lg text-sm outline-none focus:ring-1 focus:ring-blue-500" type="text" />
               </div>
 
