@@ -968,9 +968,9 @@ const ProjectWorkForce = ({
 }) => {
   // --- STATE ---
   const [workforceData, setWorkforceData] = useState([
-    { accountCode: '400010', accountName: 'Direct Labor - Regular', orgCode: 'ORG001', orgName: 'Software Engineering' },
-    { accountCode: '400020', accountName: 'Direct Labor - Overtime', orgCode: 'ORG001', orgName: 'Software Engineering' },
-    { accountCode: '500150', accountName: 'Travel Expenses', orgCode: 'ORG002', orgName: 'Sales & Marketing' },
+    { accountCode: '50-000-000', accountName: 'Direct Lbr-Onsite', orgCode: '1.02.03', orgName: 'Software Engineering' },
+    { accountCode: '50-000-100', accountName: 'Dir Labor-Offsite', orgCode: '1.02.05', orgName: 'Software Engineering' },
+    { accountCode: '50-000-999', accountName: 'Unbilled DL (Onsite)', orgCode: '1.02.04', orgName: 'Sales & Marketing' },
   ]);
 
   const [showAddForm, setShowAddForm] = useState(false);
@@ -999,8 +999,8 @@ const ProjectWorkForce = ({
           <div className="w-1/3">
             <h1 className="text-3xl font-extrabold">
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-800 to-blue-600 leading-tight">
-                Project WorkForce
-              </span>
+                Account Org Setup
+                              </span>
             </h1>
           </div>
 
@@ -1029,7 +1029,7 @@ const ProjectWorkForce = ({
         <section className="space-y-4">
           <div className="flex justify-between items-center border-b-2 border-blue-200 pb-2">
             <h2 className="text-sm font-bold text-gray-700 uppercase tracking-wider">
-              Workforce Mapping Table
+              Account Org Mapping Table
             </h2>
             <button 
               onClick={() => setShowAddForm(!showAddForm)}

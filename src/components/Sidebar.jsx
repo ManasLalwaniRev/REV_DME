@@ -391,7 +391,7 @@ const SidebarItem = ({ icon, text, page, currentPage, setCurrentPage, isCollapse
 export default function Sidebar({ currentPage, setCurrentPage, currentUserRole, handleLogout, sidebarOpen, setSidebarOpen }) {
   const navItems = [
     { page: 'view', label: 'Master List', icon: <Database size={20} />, roles: ['user', 'admin', 'accountant'] },
-    { page: 'project-setup', label: 'Project Pre-requisit', icon: <ClipboardList size={20} />, roles: ['user', 'admin', 'accountant'] },
+    { page: 'project-setup', label: 'Project Pre-requisite', icon: <ClipboardList size={20} />, roles: ['user', 'admin', 'accountant'] },
     { page: 'project-workforce', label: 'Account Org Setup', icon: <Users size={20} />, roles: ['user', 'admin', 'accountant'] },
     { page: 'employee-onboarding', label: 'Employee Onboarding', icon: <UserPlus size={20} />, roles: ['user', 'admin', 'accountant'] },
     { page: 'customer', label: 'Customer Setup', icon: <Building2 size={20} />, roles: ['user', 'admin', 'accountant'] },
