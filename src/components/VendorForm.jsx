@@ -163,7 +163,7 @@
 
 
 import React from 'react';
-import { Save, Truck, UserCircle, LogOut } from 'lucide-react';
+import { Save, Truck, UserCircle, LogOut,Upload } from 'lucide-react';
 
 const VendorForm = ({ 
   userName = 'Admin', 
@@ -236,7 +236,7 @@ const VendorForm = ({
               </div>
 
               <div className="space-y-1">
-                <label className="text-xs font-bold text-gray-500 uppercase">Vendor Name</label>
+                <label className="text-xs font-bold text-gray-500 uppercase"><span className="text-red-500">*</span></label>
                 <input className="w-full p-2 border border-gray-300 rounded-lg text-sm outline-none focus:ring-1 focus:ring-blue-500" type="text" />
               </div>
 
@@ -272,12 +272,12 @@ const VendorForm = ({
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               
               <div className="space-y-1">
-                <label className="text-xs font-bold text-gray-500 uppercase">Tax ID / EIN</label>
+                <label className="text-xs font-bold text-gray-500 uppercase">Tax ID / EIN<span className="text-red-500">*</span></label>
                 <input className="w-full p-2 border border-gray-300 rounded-lg text-sm outline-none focus:ring-1 focus:ring-blue-500" type="text" />
               </div>
 
               <div className="space-y-1">
-                <label className="text-xs font-bold text-gray-500 uppercase">1099 Name</label>
+                <label className="text-xs font-bold text-gray-500 uppercase">1099 Name<span className="text-red-500">*</span></label>
                 <input className="w-full p-2 border border-gray-300 rounded-lg text-sm outline-none focus:ring-1 focus:ring-blue-500" type="text" />
               </div>
 
@@ -349,6 +349,21 @@ const VendorForm = ({
 
           {/* --- FOOTER BUTTONS --- */}
           <div className="flex justify-end gap-4 pt-6 border-t border-gray-100">
+            
+          <button 
+                type="submit" 
+                className="flex items-center gap-2 px-8 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-extrabold rounded-lg shadow-md transform transition-all active:scale-95 text-sm"
+              >
+                <Upload size={18} />
+  Attach for Bank Information              
+  </button>
+            <button 
+                type="submit" 
+                className="flex items-center gap-2 px-8 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-extrabold rounded-lg shadow-md transform transition-all active:scale-95 text-sm"
+              >
+                <Upload size={18} />
+  Add W-9              
+  </button>
               <button 
                 type="button" 
                 className="px-6 py-2.5 border border-gray-300 rounded-lg text-gray-600 font-bold hover:bg-gray-100 transition-all text-sm shadow-sm"

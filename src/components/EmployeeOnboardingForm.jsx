@@ -187,7 +187,7 @@
 
 
 import React from 'react';
-import { UserPlus, LogOut, UserCircle, Briefcase, User, MapPin, DollarSign } from 'lucide-react';
+import { UserPlus, LogOut, UserCircle, Briefcase, User, MapPin, DollarSign, Upload } from 'lucide-react';
 
 const EmployeeOnboardingForm = ({ userName = 'Admin', userAvatar, handleLogout }) => {
   const handleSubmit = (e) => {
@@ -205,7 +205,7 @@ const EmployeeOnboardingForm = ({ userName = 'Admin', userAvatar, handleLogout }
         <div className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm px-8 py-6 border-b border-gray-100 flex justify-between items-center shadow-sm">
           <div className="w-1/3">
             <h1 className="text-3xl font-extrabold text-blue-900 tracking-tight ">
-              Employee Onboarding
+              Employee Information
             </h1>
           </div>
           
@@ -239,7 +239,7 @@ const EmployeeOnboardingForm = ({ userName = 'Admin', userAvatar, handleLogout }
             {/* Grid widened to 4 columns on large screens to use the extra space */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 bg-gray-50 p-6 rounded-xl border border-gray-100">
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Status</label>
+                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Status<span className="text-red-500">*</span></label>
                 <select className="w-full p-2.5 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-600 outline-none shadow-sm transition-all">
                   <option>Select...</option>
                   <option>New Employee</option>
@@ -248,7 +248,7 @@ const EmployeeOnboardingForm = ({ userName = 'Admin', userAvatar, handleLogout }
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Full Name</label>
+                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Full Name<span className="text-red-500">*</span></label>
                 <input className="w-full p-2.5 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-600 outline-none shadow-sm" type="text" placeholder="First Last" />
               </div>
 
@@ -273,7 +273,7 @@ const EmployeeOnboardingForm = ({ userName = 'Admin', userAvatar, handleLogout }
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Effective Date</label>
+                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Effective Date<span className="text-red-500">*</span></label>
                 <input className="w-full p-2.5 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-600 outline-none shadow-sm" type="date" />
               </div>
 
@@ -291,7 +291,7 @@ const EmployeeOnboardingForm = ({ userName = 'Admin', userAvatar, handleLogout }
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 bg-gray-50 p-6 rounded-xl border border-gray-100">
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Employment Type</label>
+                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Employment Type<span className="text-red-500">*</span></label>
                 <select className="w-full p-2.5 bg-white border border-gray-200 rounded-lg text-sm outline-none focus:ring-2 focus:ring-blue-600 shadow-sm">
                   <option>Regular</option>
                   <option>Temporary</option>
@@ -300,7 +300,7 @@ const EmployeeOnboardingForm = ({ userName = 'Admin', userAvatar, handleLogout }
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Pay Basis</label>
+                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Pay Basis<span className="text-red-500">*</span></label>
                 <select className="w-full p-2.5 bg-white border border-gray-200 rounded-lg text-sm outline-none focus:ring-2 focus:ring-blue-600 shadow-sm">
                   <option>Salaried</option>
                   <option>Hourly</option>
@@ -308,20 +308,20 @@ const EmployeeOnboardingForm = ({ userName = 'Admin', userAvatar, handleLogout }
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">FLSA</label>
+                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">FLSA<span className="text-red-500">*</span></label>
                 <select className="w-full p-2.5 bg-white border border-gray-200 rounded-lg text-sm outline-none focus:ring-2 focus:ring-blue-600 shadow-sm">
-                  <option>Exempt</option>
+                  <option>Exempt<span className="text-red-500">*</span></option>
                   <option>Non-Exempt</option>
                 </select>
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Rate ($)</label>
+                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Rate ($)<span className="text-red-500">*</span></label>
                 <input className="w-full p-2.5 bg-white border border-gray-200 rounded-lg text-sm outline-none focus:ring-2 focus:ring-blue-600 shadow-sm" type="text" placeholder="0.00" />
               </div>
 
               <div className="flex flex-col gap-1.5 xl:col-span-1">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Benefits Plan</label>
+                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Benefits Plan <span className="text-red-500">*</span></label>
                 <input className="w-full p-2.5 bg-white border border-gray-200 rounded-lg text-sm outline-none focus:ring-2 focus:ring-blue-600 shadow-sm" type="text" />
               </div>
             </div>
@@ -389,22 +389,22 @@ const EmployeeOnboardingForm = ({ userName = 'Admin', userAvatar, handleLogout }
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-gray-50 p-6 rounded-xl border border-gray-100">
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Charging Project</label>
+                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Charging Project<span className="text-red-500">*</span></label>
                 <input className="w-full p-2.5 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-600 outline-none shadow-sm" type="text" />
               </div>
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Labor Location</label>
+                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Labor Location<span className="text-red-500">*</span></label>
                 <input className="w-full p-2.5 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-600 outline-none shadow-sm" type="text" />
               </div>
 
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">PLC Code</label>
+                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">PLC Code<span className="text-red-500">*</span></label>
                 <input className="w-full p-2.5 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-600 outline-none shadow-sm" type="text" />
               </div>
 
                 <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Home Organization</label>
+                <label className="text-xs font-black text-gray-400 uppercase tracking-widest">Home Organization<span className="text-red-500">*</span></label>
                 <input className="w-full p-2.5 bg-white border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-600 outline-none shadow-sm" type="text" />
               </div>
 
@@ -419,7 +419,11 @@ const EmployeeOnboardingForm = ({ userName = 'Admin', userAvatar, handleLogout }
                Complete Onboarding
              </button>
              <button type="button" className="px-10 py-3.5 border-2 border-gray-200 rounded-xl text-gray-400 font-black hover:bg-gray-50 transition-all uppercase tracking-widest text-sm">
-               Save Draft
+              <Upload size={1} /> Save Draft
+             </button>
+             <button type="submit" className="flex items-center gap-2 bg-gradient-to-r from-blue-800 to-blue-900 text-white font-black py-3.5 px-10 rounded-xl shadow-xl hover:from-blue-900 hover:to-black transition-all transform hover:-translate-y-1 active:scale-95 uppercase tracking-widest text-sm">
+               <Upload size={20} />
+               Import Employee Data
              </button>
           </div>
         </form>

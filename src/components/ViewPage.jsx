@@ -2030,7 +2030,7 @@ const ViewPage = ({ allData = {}, userName = 'Admin', userAvatar, handleLogout, 
     const worksheet = XLSX.utils.json_to_sheet(cleanedData);
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, activeCategory);
-    XLSX.writeFile(workbook, `Lumina_${activeCategory}_Export.xlsx`);
+    XLSX.writeFile(workbook, `Revolve_${activeCategory}_Export.xlsx`);
   };
 
   return (

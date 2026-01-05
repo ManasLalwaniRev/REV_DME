@@ -958,7 +958,7 @@
 // export default ProjectWorkforceForm;
 
 
-
+////////////////
 // PREV DEV// import React, { useState } from 'react';
 // import { UserCircle, LogOut, FileText, Download, Plus, Trash2, Save, X } from 'lucide-react';
 
@@ -1237,7 +1237,7 @@ const ProjectWorkForce = ({
               <div className="bg-blue-50/50 p-6 rounded-xl border border-blue-100 animate-in fade-in slide-in-from-top-2 duration-300">
                 <form onSubmit={handleAddAccount} className="flex flex-wrap items-end gap-6">
                   <div className="flex-1 min-w-[250px] space-y-1">
-                    <label className="text-[10px] font-bold text-gray-400 uppercase">Account Code</label>
+                    <label className="text-[10px] font-bold text-gray-400 uppercase">Account Code <span className="text-red-500">*</span> </label>
                     <input 
                       className="w-full p-2 border-b-2 border-gray-300 focus:border-blue-600 outline-none text-sm bg-transparent font-mono"
                       placeholder="e.g. 50-000-000"
@@ -1247,7 +1247,7 @@ const ProjectWorkForce = ({
                     />
                   </div>
                   <div className="flex-[2] min-w-[300px] space-y-1">
-                    <label className="text-[10px] font-bold text-gray-400 uppercase">Account Name</label>
+                    <label className="text-[10px] font-bold text-gray-400 uppercase">Account Name<span className="text-red-500">*</span> </label>
                     <input 
                       className="w-full p-2 border-b-2 border-gray-300 focus:border-blue-600 outline-none text-sm bg-transparent"
                       placeholder="Enter account description..."

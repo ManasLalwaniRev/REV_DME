@@ -31,7 +31,7 @@ export const MOCK_ENTRIES = [
         id: 1, 
         primeKey: "1001", 
         creditCard: "Amex - 1004", 
-        contract: "Lumina East", 
+        contract: "ABC East", 
         vendor: "Office Depot", 
         amount: "150.75", 
         submitter: "admin",
@@ -51,7 +51,7 @@ export const MOCK_ENTRIES = [
         id: 3, 
         primeKey: "1003", 
         creditCard: "MasterCard", 
-        contract: "Lumina West", 
+        contract: "XYZ West", 
         vendor: "Staples", 
         amount: "45.20", 
         submitter: "accountant",
@@ -66,7 +66,7 @@ export const MOCK_PROJECT_SETUP = [
     { 
         id: 1, 
         projectName: "Solar Phase II", 
-        client: "Lumina East", 
+        client: "XYZ East", 
         submitter: "admin", 
         
         date: "2024-03-20" ,
@@ -84,7 +84,7 @@ export const MOCK_PROJECT_SETUP = [
     { 
         id: 3, 
         projectName: "Battery Storage", 
-        client: "Lumina West", 
+        client: "XYZ West", 
         submitter: "accountant",  
         date: "2024-03-22" ,
         status: "In Review",

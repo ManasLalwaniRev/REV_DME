@@ -193,7 +193,6 @@
 
 // export default ProjectSetupForm;
 
-
 import React from 'react';
 import { Upload, Plus, Trash2, Save, UserCircle, LogOut } from 'lucide-react';
 
@@ -262,7 +261,10 @@ const ProjectSetupForm = ({
             <h2 className="text-lg font-bold text-blue-800 border-b-2 border-blue-200 pb-1">A. Project Identification</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="space-y-1">
-                <label className="text-xs font-bold text-gray-500 uppercase">Project Name</label>
+                {/* PROJECT NAME - MANDATORY */}
+                <label className="text-xs font-bold text-gray-500 uppercase">
+                  Project Name <span className="text-red-500">*</span>
+                </label>
                 <input className="w-full p-2 border-b-2 border-gray-300 focus:border-blue-600 outline-none transition-colors text-base" type="text" placeholder="e.g. Solar Phase II" />
               </div>
               <div className="space-y-1">
@@ -312,7 +314,10 @@ const ProjectSetupForm = ({
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-2">
-                <label className="block text-sm font-bold text-gray-700">3. Contract Type</label>
+                {/* CONTRACT TYPE - MANDATORY */}
+                <label className="block text-sm font-bold text-gray-700">
+                  3. Contract Type <span className="text-red-500">*</span>
+                </label>
                 <select className="w-full p-2 border border-gray-300 rounded-lg text-sm bg-white">
                   <option>T&M (Time & Material)</option>
                   <option>FFP (Firm Fixed Price)</option>
@@ -320,7 +325,10 @@ const ProjectSetupForm = ({
                 </select>
               </div>
               <div className="space-y-2">
-                <label className="block text-sm font-bold text-gray-700">4. Contract & Funding Value</label>
+                {/* CONTRACT & FUNDING - MANDATORY */}
+                <label className="block text-sm font-bold text-gray-700">
+                  4. Contract & Funding Value <span className="text-red-500">*</span>
+                </label>
                 <div className="flex gap-4">
                   <input className="w-1/2 p-2 border border-gray-300 rounded-lg text-sm" type="text" placeholder="Contract Val ($)" />
                   <input className="w-1/2 p-2 border border-gray-300 rounded-lg text-sm" type="text" placeholder="Funding Val ($)" />
@@ -339,15 +347,18 @@ const ProjectSetupForm = ({
                 <input className="w-full p-2 border border-gray-300 rounded-lg text-sm" type="text" />
               </div>
               <div className="space-y-1">
-                <label className="block text-xs font-bold text-gray-600">12. Project Manager</label>
+                <label className="block text-xs font-bold text-gray-600">7. Project Manager</label>
                 <input className="w-full p-2 border border-gray-300 rounded-lg text-sm" type="text" />
               </div>
               <div className="space-y-1">
-                <label className="block text-xs font-bold text-gray-600">10. Owning Org/Division</label>
+                {/* OWNING ORG - MANDATORY */}
+                <label className="block text-xs font-bold text-gray-600">
+                  8. Owning Org/Division <span className="text-red-500">*</span>
+                </label>
                 <input className="w-full p-2 border border-gray-300 rounded-lg text-sm" type="text" />
               </div>
               <div className="space-y-1">
-                <label className="block text-xs font-bold text-gray-600">7/11. PoP Dates</label>
+                <label className="block text-xs font-bold text-gray-600">9. PoP Dates</label>
                 <div className="flex gap-2">
                   <input className="w-1/2 p-2 border border-gray-300 rounded-lg text-xs" type="date" />
                   <input className="w-1/2 p-2 border border-gray-300 rounded-lg text-xs" type="date" />
@@ -358,7 +369,7 @@ const ProjectSetupForm = ({
             {/* Workforce Table */}
             <div className="space-y-4 pt-2">
               <div className="flex justify-between items-center">
-                <label className="block text-sm font-bold text-gray-700 uppercase tracking-wider">13. Workforce Information Table</label>
+                <label className="block text-sm font-bold text-gray-700 uppercase tracking-wider">10. Workforce Information Table</label>
                 <button type="button" className="text-blue-700 px-3 py-1 rounded-md hover:bg-blue-100 flex items-center gap-2 text-xs font-bold transition-colors">
                   <Plus size={14} /> Add New Resource
                 </button>
@@ -399,11 +410,11 @@ const ProjectSetupForm = ({
             <h2 className="text-lg font-bold text-blue-800 border-b-2 border-blue-200 pb-1">D. Billing & Overrides</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-2">
-                <label className="block text-sm font-bold text-gray-700">14. Cost Ceiling / Burden / Fee Overrides</label>
+                <label className="block text-sm font-bold text-gray-700">11. Cost Ceiling / Burden / Fee Overrides</label>
                 <textarea className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm" rows="3" placeholder="Detail any CLIN overrides..."></textarea>
               </div>
               <div className="space-y-2">
-                <label className="block text-sm font-bold text-gray-700">15. Billing Instructions</label>
+                <label className="block text-sm font-bold text-gray-700">12. Billing Instructions</label>
                 <textarea className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm" rows="3" placeholder="Enter format, emails, etc..."></textarea>
               </div>
             </div>
@@ -411,6 +422,13 @@ const ProjectSetupForm = ({
 
           {/* --- FOOTER BUTTONS --- */}
           <div className="flex justify-end gap-4 pt-6 border-t border-gray-100">
+               <button 
+                type="submit" 
+                className="flex items-center gap-2 px-8 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-extrabold rounded-lg shadow-md transform transition-all active:scale-95 text-sm"
+              >
+                <Upload size={18} />
+                Import Project Data
+              </button>
               <button 
                 type="button" 
                 className="px-6 py-2.5 border border-gray-300 rounded-lg text-gray-600 font-bold hover:bg-gray-100 transition-all text-sm shadow-sm"
