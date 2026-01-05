@@ -329,20 +329,20 @@ const LoginPage = ({ onLoginSuccess }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-gradient-to-r from-blue-200 via-purple-300 to-purple-200 p-4">
+    <div className="flex flex-col items-center justify-center min-h-screen w-full bg-gradient-to-r from-white-500 via-white-300 to-blue-200 p-4">
       <div className="bg-white/10 backdrop-blur-lg p-8 sm:p-10 rounded-2xl shadow-2xl text-center max-w-md w-full border border-white/20">
         
         <div className="flex justify-center mb-6">
             <img 
-                src="/Lumina_logo.png" 
+                src="/Lumina_logo-removebg-preview.png" 
                 alt="Lumina Logo" 
-                className="h-14"
+                className="h-18"
             />
         </div>
         
-        <h1 className="text-3xl sm:text-4xl font-bold text-gray-100 mb-8">
-          Expense Management
-        </h1>
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-600 mb-8">
+        MDM Portal
+        </h2>
 
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
@@ -350,7 +350,7 @@ const LoginPage = ({ onLoginSuccess }) => {
             <input
               type="text"
               id="username"
-              className="w-full p-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 bg-black-700/50 border border-gray-600 rounded-lg text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -362,7 +362,7 @@ const LoginPage = ({ onLoginSuccess }) => {
             <input
               type="password"
               id="password"
-              className="w-full p-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 bg-black-700/50 border border-gray-600 rounded-lg text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -382,9 +382,9 @@ const LoginPage = ({ onLoginSuccess }) => {
         </form>
         
         {/* Helper text for the demo */}
-        <div className="mt-6 p-3 bg-white/5 rounded text-xs text-gray-300 italic">
+        {/* <div className="mt-6 p-3 bg-white/5 rounded text-xs text-gray-300 italic">
           Demo Access: admin / password123
-        </div>
+        </div> */}
       </div>
     </div>
   );
